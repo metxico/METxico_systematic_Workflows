@@ -171,5 +171,3 @@ paste0(WD, '\\Superclass_summary.csv'),
 write.csv(class1,
 paste0(WD, '\\Class_summary.csv'),
           row.names = FALSE)
-
-
