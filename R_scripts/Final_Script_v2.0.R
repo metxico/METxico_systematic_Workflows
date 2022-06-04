@@ -9,6 +9,8 @@ library(RColorBrewer)
 library(plotly)
 library(stringr)
 
+#First, set the working directory (WD). 
+#In it, You must deposit all the output files from SIRIUS.
 
 WD <- getwd()
 canopus_summary <- as.data.frame(fread(paste0(WD, '\\canopus_summary.tsv')))
@@ -150,47 +152,24 @@ FinalTable_15ppm <- sqldf("select ChemicalName, superclass, class, subclass, Con
                     Mass_accuracy__ppm_, pubchemids, links, TimeInMinutes from merged_df2_15ppm") #Remove pubchemids and links when approved
 
 
+#This writes a CSV with all annotations, including those that have a mass deviation >15 ppm
 write.csv(merged_df2,
-paste0(WD, '\\merged_df2.csv'),
+paste0(WD, '\\Total_metabolites.csv'),
           row.names = FALSE)
 
+#This writes a CSV with annotations that have a mass deviation <15 ppm
 write.csv(FinalTable_15ppm,
 paste0(WD, '\\Final_Table.csv'),
           row.names = FALSE)
 
+#This writes a CSV with a summary of the number of elements and superclasses that appeared
 write.csv(superclass1,
 paste0(WD, '\\Superclass_summary.csv'),
           row.names = FALSE)
+
+#This writes a CSV with a summary of the number of elements and classes that appeared
 write.csv(class1,
 paste0(WD, '\\Class_summary.csv'),
           row.names = FALSE)
-
-
-
-
-dir.create(file.path("Images_Molecules"), recursive = TRUE)
-
-WD2 <- paste0(getwd(), '\\Images_Molecules')
-
-setwd(WD2)
-
-custom_img <- function(x){
-  cir_img((x),
-          dir = getwd(),
-          format = "png",
-          width = 600,
-          height = 600,
-          linewidth = 5,
-          symbolfontsize = 30,
-         )
-} #Function to obtain molecule image
-
-#Apply function to obtain molecule images
-mapply(custom_img, merged_df2$smiles) 
-
-setwd(WD)
-
-
-
 
 
