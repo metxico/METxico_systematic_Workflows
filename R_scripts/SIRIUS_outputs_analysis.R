@@ -1,3 +1,17 @@
+#This script takes the two principal output files from SIRIUS ("canopus_summary" & "compound_identification"). First, it merges them and gets the theoretical mass considering the adduct. Then transforms the retention time into minutes, calculates the mass deviation, and creates pie charts at superclass and class levels. Finally, it looks for the chemical name in Pubchem and then filters the values with a mass deviation >15 ppm. 
+
+#It generates six output files, in CSV format:
+#1. Total_metabolites.csv contains all the annotations, including those that have a mass deviation >15 ppm
+#2, Final_Table.csv, it contains the annotations that have a mass deviation <15 ppm
+#3. Superclass_summary.csv contains a summary of the number of elements and superclasses that appeared
+#4. Class_summary.csv contains a summary of the number of elements and classes that appeared
+
+#and in PNG:
+
+#5. Superclass.png
+#6. Class.png
+
+#Load the required libraries
 library(data.table)
 library(Rdisop) #To use package getMolecule https://www.rdocumentation.org/packages/Rdisop/versions/1.32.0/topics/getMolecule
 library(patRoon) #aims to provide comprehensive mass spectrometry based non-target analysis (NTA) workflows for environmental analysis. (Used to adducts) https://github.com/rickhelmus/patRoon
