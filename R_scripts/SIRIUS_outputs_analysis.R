@@ -1,4 +1,7 @@
-#This script takes the two principal output files from SIRIUS ("canopus_summary" & "compound_identification"). First, it merges them and gets the theoretical mass considering the adduct. Then transforms the retention time into minutes, calculates the mass deviation, and creates pie charts at superclass and class levels. Finally, it looks for the chemical name in Pubchem and then filters the values with a mass deviation >15 ppm. 
+#This script takes the two principal output files from SIRIUS ("canopus_summary" & "compound_identification"). 
+#First, it merges them and gets the theoretical mass considering the adduct. 
+#Then transforms the retention time into minutes, calculates the mass deviation, and creates pie charts at superclass and class levels. 
+#Finally, it looks for the chemical name in Pubchem and then filters the values with a mass deviation >15 ppm. 
 
 #It generates six output files, in CSV format:
 #1. Total_metabolites.csv contains all the annotations, including those that have a mass deviation >15 ppm
