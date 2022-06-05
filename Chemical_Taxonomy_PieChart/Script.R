@@ -38,4 +38,4 @@ plotly_IMAGE(fig_chemosuperclasstreelife, format="png", width = 1920, height = 1
 
 
 
-#We open to collaboration, thanks for saw R.workflow.
+¡We open to collaboration, thanks for saw R.workflow!
