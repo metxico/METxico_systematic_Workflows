@@ -1,6 +1,8 @@
 library("heatmaply")
+use_counte_file_GNPS "VIEW COMPOUND and FILE"
 
-read.csv("Archaeplastida.csv")
-melt_mtcars <- read.csv("Archaeplastida.csv")
 
-heatmaply(melt_mtcars)
+read.csv("VIEW COMPOUND and FILE.csv")
+output_file_name <- read.csv("VIEW COMPOUND and FILE.csv")
+
+heatmaply(output_file_name)
